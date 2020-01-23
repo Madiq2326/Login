@@ -72,7 +72,8 @@ namespace Login
 
         private void BTN_ShowData_Click(object sender, RoutedEventArgs e)
         {
-            var list = con.QueryAsync<Employee>("exec SP_View_Employee").Result.ToList();
+            var view = con.Query<Employee>("SELECT * FROM Employee").ToList();
+            DaftarTable.ItemsSource = view;
         }
     }
 }
