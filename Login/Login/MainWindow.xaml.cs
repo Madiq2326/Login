@@ -36,9 +36,14 @@ namespace Login
                 new { Username = TB_Username.Text, Password = TB_Password.Password }).Result.SingleOrDefault();
             if(check != null)
             {
-                MessageBox.Show("Berhasil Login");
+                var role_aja = con.QueryAsync<Check>("exec SP_Assign_Role @Username", 
+                    new { Username = TB_Username.Text}).Result.SingleOrDefault();
+
+                MessageBox.Show("Berhasil Login" + role_aja);
+
                 var newwindow = new Window2();
                 newwindow.Show();
+
                 Close();
             }
             else

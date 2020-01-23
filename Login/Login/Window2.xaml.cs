@@ -22,13 +22,24 @@ namespace Login
     /// </summary>
     public partial class Window2 : Window
     {
+        public int send2 { get; set; }
+
+        int role = 0;
+
+
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString);
 
         public Window2()
         {
             InitializeComponent();
-
-            Btn_MasterData.Visibility = System.Windows.Visibility.Hidden;
+            if(role == 0)
+            {
+                Btn_MasterData.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                Btn_MasterData.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
         private void Click_Btn_MasterData(object sender, RoutedEventArgs e)
