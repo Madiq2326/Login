@@ -34,14 +34,16 @@ namespace Login
         {
             var check = con.QueryAsync<Check>("exec SP_Retrieve_Login @Username, @Password",
                 new { Username = TB_Username.Text, Password = TB_Password.Password }).Result.SingleOrDefault();
-            if(check != null)
+
+            if(check.Username == TB_Username.Text)
             {
-                var role_aja = con.QueryAsync<Check>("exec SP_Assign_Role @Username", 
+
+                var role = con.QueryAsync<Check>("exec SP_Assign_Role @Username", 
                     new { Username = TB_Username.Text}).Result.SingleOrDefault();
 
-                MessageBox.Show("Berhasil Login" + role_aja);
+                MessageBox.Show("Berhasil Login role : " + role.Role);
 
-                var newwindow = new Window2();
+                var newwindow = new Window2(role.Role);
                 newwindow.Show();
 
                 Close();

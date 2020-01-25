@@ -7,15 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="450" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF347474">
-
-        <TextBox Name="TB_Username" HorizontalAlignment="Left" Height="32" Margin="86,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" VerticalContentAlignment="Center"/>
+        <TextBox Name="TB_Username" HorizontalAlignment="Left" Height="32" Margin="86,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" HorizontalContentAlignment="Left" CaretBrush="#FF1C1C1D" SelectionBrush="#FF1C1C1D"/>
         <CheckBox Content="Remember me" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86,435,0,0"/>
-        <Button Name="Btn_Login" Click="Btn_Login_Click" Content="LOGIN" HorizontalAlignment="Left" Margin="86,461,0,0" VerticalAlignment="Top" Width="116" Height="28"/>
+        <Button Name="Btn_Login" Click="Btn_Login_Click" Content="LOGIN" HorizontalAlignment="Left" Margin="86,461,0,0" VerticalAlignment="Top" Width="116" Height="28" Background="#FF241CCF" BorderBrush="#FF0B0B0C"/>
         <Label Content="EMAIL" HorizontalAlignment="Left" Margin="86,244,0,0" VerticalAlignment="Top" Width="266" Height="42" FontFamily="Segoe UI Black" FontSize="22"/>
         <Label Content="PASSWORD" HorizontalAlignment="Left" Margin="86,342,0,0" VerticalAlignment="Top" Width="266" Height="42" FontFamily="Segoe UI Black" FontSize="22"/>
         <Label Content="Forgot password ?" HorizontalAlignment="Left" Margin="245,463,0,0" VerticalAlignment="Top"/>
-        <PasswordBox Name="TB_Password" HorizontalAlignment="Left" Margin="86,384,0,0" VerticalAlignment="Top" Width="266" Height="32" VerticalContentAlignment="Center"/>
-        <Image Margin="108,37,114,341" Source="kisspng-robot-cartoon-animation-clip-art-cartoon-robots-5aab3c1ad53de0.4000722715211714828734.png" Stretch="Fill"/>
-
+        <PasswordBox Name="TB_Password" HorizontalAlignment="Left" Margin="86,384,0,0" VerticalAlignment="Top" Width="266" Height="32" VerticalContentAlignment="Center" CaretBrush="#FF1C1C1D"/>
+        <Image Margin="100,17,99,340" Source="img_login.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Window>

@@ -22,15 +22,12 @@ namespace Login
     /// </summary>
     public partial class Window2 : Window
     {
-        public int send2 { get; set; }
-
-        int role = 0;
-
-
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyConnection"].ConnectionString);
 
-        public Window2()
+        public Window2(int roleVal)
         {
+            int role = roleVal;
+
             InitializeComponent();
             if(role == 0)
             {
@@ -44,7 +41,7 @@ namespace Login
 
         private void Click_Btn_MasterData(object sender, RoutedEventArgs e)
         {
-            var newwindow = new Window1();
+            var newwindow = new Window1(0);
             newwindow.Show();
             Close();
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="Window1" Height="724" Width="600" WindowStyle="ThreeDBorderWindow">
+        Title="Window1" Height="640.5" Width="1190.875" WindowStyle="ThreeDBorderWindow">
     <Grid UseLayoutRounding="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="267*"/>
@@ -24,24 +24,23 @@
         <Label Content="Bachelor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,401,0,0" Height="30"/>
         <Label Content="University" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,436,0,0" Height="30"/>
         <Label Content="JoinDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,471,0,0" Height="30"/>
-        <TextBox Name="TB_Id" HorizontalAlignment="Left" Height="30" Margin="140,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
+        <TextBox Name="TB_Id" HorizontalAlignment="Left" Height="30" Margin="140,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303" IsEnabled="False"/>
         <TextBox Name="TB_Name" HorizontalAlignment="Left" Height="30" Margin="140,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_PhoneNum" HorizontalAlignment="Left" Height="30" Margin="140,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_Address" HorizontalAlignment="Left" Height="30" Margin="140,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_PlaceBirth" HorizontalAlignment="Left" Height="30" Margin="140,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
-        <TextBox Name="TB_BirthDate" HorizontalAlignment="Left" Height="30" Margin="140,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_NIK" HorizontalAlignment="Left" Height="30" Margin="140,261,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_Email" HorizontalAlignment="Left" Height="30" Margin="140,296,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_Religion" HorizontalAlignment="Left" Height="30" Margin="140,331,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_NPWP" HorizontalAlignment="Left" Height="30" Margin="140,366,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
-        <TextBox Name="TB_Bachelor" HorizontalAlignment="Left" Height="30" Margin="140,401,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
         <TextBox Name="TB_University" HorizontalAlignment="Left" Height="30" Margin="140,436,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
-        <TextBox Name="TB_JoinDate" HorizontalAlignment="Left" Height="30" Margin="140,471,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="303"/>
-        <DataGrid Name="DaftarTable" HorizontalAlignment="Left" Height="144" Margin="10,538,0,0" VerticalAlignment="Top" Width="572" Grid.ColumnSpan="2"/>
-        <Button Name="BTN_Insert" Click="BTN_Insert_Click" Content="Insert" HorizontalAlignment="Left" Margin="484,51,0,0" VerticalAlignment="Top" Width="90" Height="30" Grid.ColumnSpan="2" />
-        <Button Name="BTN_Update" Click="BTN_Update_Click" Content="Update" HorizontalAlignment="Left" Margin="484,86,0,0" VerticalAlignment="Top" Width="90" Height="30" Grid.ColumnSpan="2" />
-        <Button Name="BTN_Delete" Click="BTN_Delete_Click" Content="Delete" HorizontalAlignment="Left" Margin="484,121,0,0" VerticalAlignment="Top" Width="90" Height="30" Grid.ColumnSpan="2" />
-        <Button Name="BTN_ShowData" Click="BTN_ShowData_Click" Content="View" HorizontalAlignment="Left" Margin="484,156,0,0" VerticalAlignment="Top" Width="90" Height="30" Grid.ColumnSpan="2" />
-
+        <DataGrid Loaded="DaftarTable_Loaded" Name="DaftarTable" HorizontalAlignment="Left" Height="450" Margin="505,51,0,0" VerticalAlignment="Top" Width="668" Grid.ColumnSpan="2"/>
+        <Button Name="BTN_Insert" Click="BTN_Insert_Click" Content="Insert" HorizontalAlignment="Left" Margin="10,549,0,0" VerticalAlignment="Top" Width="90" Height="30" />
+        <Button Name="BTN_Update" Click="BTN_Update_Click" Content="Update" HorizontalAlignment="Left" Margin="105,549,0,0" VerticalAlignment="Top" Width="90" Height="30" />
+        <Button Name="BTN_Delete" Click="BTN_Delete_Click" Content="Delete" HorizontalAlignment="Left" Margin="200,549,0,0" VerticalAlignment="Top" Width="90" Height="30" />
+        <DatePicker Name="TB_BirthDate" HorizontalAlignment="Left" Margin="140,226,0,0" VerticalAlignment="Top" Height="30" Width="303"/>
+        <DatePicker Name="TB_JoinDate" HorizontalAlignment="Left" Margin="140,471,0,0" VerticalAlignment="Top" Height="30" Width="303"/>
+        <ComboBox ItemsSource="{Binding Path=Bachelor}" DisplayMemberPath="Name" SelectedValuePath="Name" Name="TB_Bachelor" HorizontalAlignment="Left" Margin="140,401,0,0" VerticalAlignment="Top" Width="303" Height="30">
+        </ComboBox>
     </Grid>
 </Window>
