@@ -5,14 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="450" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="600" Width="450" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF347474">
-        <TextBox Name="TB_Username" HorizontalAlignment="Left" Height="32" Margin="86,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" HorizontalContentAlignment="Left" CaretBrush="#FF1C1C1D" SelectionBrush="#FF1C1C1D"/>
+        <TextBox Name="TB_Email" HorizontalAlignment="Left" Height="32" Margin="86,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" HorizontalContentAlignment="Left" CaretBrush="#FF1C1C1D" SelectionBrush="#FF1C1C1D"/>
         <CheckBox Content="Remember me" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86,435,0,0"/>
         <Button Name="Btn_Login" Click="Btn_Login_Click" Content="LOGIN" HorizontalAlignment="Left" Margin="86,461,0,0" VerticalAlignment="Top" Width="116" Height="28" Background="#FF241CCF" BorderBrush="#FF0B0B0C"/>
-        <Label Content="EMAIL" HorizontalAlignment="Left" Margin="86,244,0,0" VerticalAlignment="Top" Width="266" Height="42" FontFamily="Segoe UI Black" FontSize="22"/>
         <Label Content="PASSWORD" HorizontalAlignment="Left" Margin="86,342,0,0" VerticalAlignment="Top" Width="266" Height="42" FontFamily="Segoe UI Black" FontSize="22"/>
-        <Label Content="Forgot password ?" HorizontalAlignment="Left" Margin="245,463,0,0" VerticalAlignment="Top"/>
         <PasswordBox Name="TB_Password" HorizontalAlignment="Left" Margin="86,384,0,0" VerticalAlignment="Top" Width="266" Height="32" VerticalContentAlignment="Center" CaretBrush="#FF1C1C1D"/>
         <Image Margin="100,17,99,340" Source="img_login.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
@@ -24,5 +22,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <Button Click="Btn_Forgot_Password_Click" Name="Btn_Forgot_Password" Content="Forgot Password ?" HorizontalAlignment="Left" Margin="239,431,0,0" VerticalAlignment="Top" Width="128" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Height="27" FontSize="12" FontWeight="Normal"/>
+        <Label Content="EMAIL" HorizontalAlignment="Left" Margin="86,244,0,0" VerticalAlignment="Top" Width="266" Height="42" FontFamily="Segoe UI Black" FontSize="22"/>
     </Grid>
 </Window>

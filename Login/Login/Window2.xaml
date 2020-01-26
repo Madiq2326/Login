@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="Window2" Height="300" Width="653">
+        Title="Window2" Height="405" Width="653">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle HorizontalAlignment="Left" Height="269" Stroke="Black" VerticalAlignment="Top" Width="146">
+        <Rectangle HorizontalAlignment="Left" Height="374" Stroke="Black" VerticalAlignment="Top" Width="146">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF0F0F0F" Offset="1"/>
@@ -25,14 +25,36 @@
         <Button x:Name="Btn_Transaction" Content="Transaction" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
         <Button x:Name="Btn_Report" Content="Report" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
         <Button Visibility="Visible" Click="Click_Btn_MasterData" x:Name="Btn_MasterData" Content="Master Data" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
-        <TabControl HorizontalAlignment="Left" Height="230" Margin="195,29,0,0" VerticalAlignment="Top" Width="440" Grid.ColumnSpan="2">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+        <TabControl HorizontalAlignment="Left" Height="335" Margin="195,29,0,0" VerticalAlignment="Top" Width="440" Grid.ColumnSpan="2">
+            <TabItem Header="Profile">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Name : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="NIK : " HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Address : " HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Place Birth : " HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Birth Date : " HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Email : " HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top"/>
+                    <Label Content="NPWP : " HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Jobtitle : " HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Department : " HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Majors : " HorizontalAlignment="Left" Margin="10,271,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbname" Content="lbname " HorizontalAlignment="Left" Margin="64,10,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbNIK" Content="lbNIK " HorizontalAlignment="Left" Margin="51,39,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbAddress" Content="lbAddress " HorizontalAlignment="Left" Margin="75,68,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbBirthDate" Content="lbBirthDate " HorizontalAlignment="Left" Margin="85,97,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbPlaceBirth" Content="lbPlaceBirth " HorizontalAlignment="Left" Margin="88,126,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbEmail" Content="lbEmail " HorizontalAlignment="Left" Margin="61,155,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbNPWP" Content="lbNPWP " HorizontalAlignment="Left" Margin="66,184,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbJobtitle" Content="lbJobtitle " HorizontalAlignment="Left" Margin="71,213,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbDepartment" Content="lbDepartment " HorizontalAlignment="Left" Margin="96,242,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lbMajors" Content="lbMajors " HorizontalAlignment="Left" Margin="68,271,0,0" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Lain-lain">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
+        <Button Click="Btn_Logout_Click" Name="Btn_Logout" Content="Log Out" Grid.Column="1" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" Width="95" FontSize="12" FontWeight="Bold" Height="29" Background="#FFC72B1B"/>
 
     </Grid>
 </Window>

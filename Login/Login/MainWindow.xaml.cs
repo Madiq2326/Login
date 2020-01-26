@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Dapper;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace Login
 {
@@ -32,18 +33,46 @@ namespace Login
 
         private void Btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            var check = con.QueryAsync<Check>("exec SP_Retrieve_Login @Username, @Password",
-                new { Username = TB_Username.Text, Password = TB_Password.Password }).Result.SingleOrDefault();
+            string hash_input;
+            int temp_id;
 
-            if(check.Username == TB_Username.Text)
+            using (MD5 md5Hash = MD5.Create())
+            {
+                hash_input = GetMd5Hash(md5Hash, TB_Password.Password);
+            }
+
+            string GetMd5Hash(MD5 md5Hash, string input)
             {
 
-                var role = con.QueryAsync<Check>("exec SP_Assign_Role @Username", 
-                    new { Username = TB_Username.Text}).Result.SingleOrDefault();
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
-                MessageBox.Show("Berhasil Login role : " + role.Role);
+                StringBuilder sBuilder = new StringBuilder();
 
-                var newwindow = new Window2(role.Role);
+                for (int i = 0; i < data.Length; i++)
+                {
+                    sBuilder.Append(data[i].ToString("x2"));
+                }
+
+                return sBuilder.ToString();
+            }
+
+
+            var check = con.QueryAsync<Check>("exec SP_Retrieve_Login @Email, @Password", 
+                new { Email = TB_Email.Text, Password = hash_input }).Result.SingleOrDefault();
+
+            if(check != null)
+            {
+                temp_id = check.Id;
+
+                var role = con.QueryAsync<Check>("exec SP_Assign_Role @Id", 
+                    new { Id = temp_id }).Result.SingleOrDefault();
+
+                var temp_employee = con.QueryAsync<Check>("SELECT Employee_Id FROM TB_M_User WHERE Id=@Id",
+                    new { Id = temp_id }).Result.SingleOrDefault();
+
+                MessageBox.Show("Berhasil Login role : " + role.Role_Id);
+
+                var newwindow = new Window2(role.Role_Id,temp_employee.Employee_Id);
                 newwindow.Show();
 
                 Close();
@@ -52,6 +81,11 @@ namespace Login
             {
                 MessageBox.Show("Gagal Login");
             }
+        }
+
+        private void Btn_Forgot_Password_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Password has been sended to " + TB_Email.Text);
         }
     }
 }
