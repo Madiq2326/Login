@@ -30,3 +30,7 @@ C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\obj\Debug\Login.
 C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\obj\Debug\Login.csprojAssemblyReference.cache
 C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\obj\Debug\Login.csproj.CoreCompileInputs.cache
 C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\obj\Debug\Login.csproj.CopyComplete
+C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\bin\Debug\BCrypt.Net.dll
+C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\bin\Debug\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\bin\Debug\BCrypt.Net.pdb
+C:\Users\muham\OneDrive\Documents\git_hub_app\Login\Login\Login\bin\Debug\BCrypt.Net.xml

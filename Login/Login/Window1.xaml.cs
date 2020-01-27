@@ -83,37 +83,19 @@ namespace Login
             {
                 TB_Id.Text = String_Id_Temp;
 
-                var name = con.QueryAsync<Employee>("SELECT Name FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var phonenum = con.QueryAsync<Employee>("SELECT Phone FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var address = con.QueryAsync<Employee>("SELECT Address FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var placebirth = con.QueryAsync<Employee>("SELECT PlaceBirth FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var birthdate = con.QueryAsync<Employee>("SELECT BirthDate FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var nik = con.QueryAsync<Employee>("SELECT NIK FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var email = con.QueryAsync<Employee>("SELECT Email FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var npwp = con.QueryAsync<Employee>("SELECT NPWP FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var university = con.QueryAsync<Employee>("SELECT University FROM TB_M_Employee WHERE Id = @Id", 
-                    new { Id = TB_Id.Text }).Result.SingleOrDefault();
-                var joindate = con.QueryAsync<Employee>("SELECT JoinDate FROM TB_M_Employee WHERE Id = @Id", 
+                var take = con.QueryAsync<Employee>("SELECT * FROM TB_M_Employee WHERE Id = @Id", 
                     new { Id = TB_Id.Text }).Result.SingleOrDefault();
 
-                TB_Name.Text = name.Name;
-                TB_PhoneNum.Text = phonenum.Phone;
-                TB_Address.Text = address.Address;
-                TB_PlaceBirth.Text = placebirth.PlaceBirth;
-                TB_BirthDate.Text = birthdate.BirthDate;
-                TB_NIK.Text = nik.NIK;
-                TB_Email.Text = email.Email;
-                TB_NPWP.Text = npwp.NPWP;
-                TB_University.Text = university.University;
-                TB_JoinDate.Text = joindate.JoinDate;
+                TB_Name.Text = take.Name;
+                TB_PhoneNum.Text = take.Phone;
+                TB_Address.Text = take.Address;
+                TB_PlaceBirth.Text = take.PlaceBirth;
+                TB_BirthDate.Text = take.BirthDate;
+                TB_NIK.Text = take.NIK;
+                TB_Email.Text = take.Email;
+                TB_NPWP.Text = take.NPWP;
+                TB_University.Text = take.University;
+                TB_JoinDate.Text = take.JoinDate;
                 CB_Jobtitle.Text = "Please fill in";
                 CB_Department.Text = "Please fill in";
                 CB_Majors.Text = "Please fill in";

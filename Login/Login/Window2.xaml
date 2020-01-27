@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Login"
         mc:Ignorable="d"
-        Title="Window2" Height="405" Width="653">
+        Title="Window2" Height="405" Width="791">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,11 +21,11 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Button x:Name="Btn_Profile" Content="Profile" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
+        <Button Click="Btn_Profile_Click" x:Name="Btn_Profile" Content="Profile" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
         <Button x:Name="Btn_Transaction" Content="Transaction" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
-        <Button x:Name="Btn_Report" Content="Report" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
+        <Button Click="Btn_Manage_User_Click" x:Name="Btn_Manage_User" Content="Manage User" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
         <Button Visibility="Visible" Click="Click_Btn_MasterData" x:Name="Btn_MasterData" Content="Master Data" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="123" Height="25"/>
-        <TabControl HorizontalAlignment="Left" Height="335" Margin="195,29,0,0" VerticalAlignment="Top" Width="440" Grid.ColumnSpan="2">
+        <TabControl Name="Tc_Controler" HorizontalAlignment="Left" Height="335" Margin="195,29,0,0" VerticalAlignment="Top" Width="578" Grid.ColumnSpan="2" Visibility="Collapsed" >
             <TabItem Header="Profile">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Name : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -53,8 +53,33 @@
             <TabItem Header="Lain-lain">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
+            <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
         </TabControl>
         <Button Click="Btn_Logout_Click" Name="Btn_Logout" Content="Log Out" Grid.Column="1" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" Width="95" FontSize="12" FontWeight="Bold" Height="29" Background="#FFC72B1B"/>
+        <TabControl Visibility="Visible" Name="Tc_User" HorizontalAlignment="Left" Height="320" Margin="163,44,0,0" VerticalAlignment="Top" Width="610" Grid.ColumnSpan="2">
+            <TabItem Header="Manage User">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Email " HorizontalAlignment="Left" Margin="29,31,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Password " HorizontalAlignment="Left" Margin="29,60,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Role " HorizontalAlignment="Left" Margin="29,94,0,0" VerticalAlignment="Top"/>
+                    <DataGrid Loaded="DG_list_User_Loaded" Name="DG_list_User" HorizontalAlignment="Left" Height="111" Margin="10,171,0,0" VerticalAlignment="Top" Width="584"/>
+                    <Label Content="Employee " HorizontalAlignment="Left" Margin="27,127,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="TB_Email" HorizontalAlignment="Left" Height="23" Margin="132,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="236"/>
+                    <TextBox Name="TB_Password" HorizontalAlignment="Left" Height="23" Margin="132,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="236"/>
+                    <ComboBox SelectedValuePath="Role_Id" DisplayMemberPath="Name_Role" ItemsSource="{Binding Path=TB_M_Role}" Name="CB_Role" HorizontalAlignment="Left" Margin="132,90,0,0" VerticalAlignment="Top" Width="236"/>
+                    <ComboBox SelectedValuePath="Id" DisplayMemberPath="Name" ItemsSource="{Binding Path=TB_M_Employee}" Name="CB_Employee" HorizontalAlignment="Left" Margin="132,123,0,0" VerticalAlignment="Top" Width="236"/>
+                    <Label Content="Id " HorizontalAlignment="Left" Margin="29,2,0,0" VerticalAlignment="Top"/>
+                    <ComboBox SelectedValuePath="Id" DisplayMemberPath="Id" ItemsSource="{Binding Path=TB_M_User}" Name="CB_Id" HorizontalAlignment="Left" Margin="132,0,0,0" VerticalAlignment="Top" Width="73"/>
+                    <Button Click="Btn_Select_Click" Name="Btn_Select" Content="SELECT" HorizontalAlignment="Left" Margin="227,0,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Button Click="Btn_Isert_Click" Name="Btn_Isert" Content="INSERT" HorizontalAlignment="Left" Margin="453,5,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Button Click="Btn_Update_Click" Name="Btn_Update" Content="UPDATE" HorizontalAlignment="Left" Margin="453,42,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Button Click="Btn_Delete_Click" Name="Btn_Delete" Content="DELETE" HorizontalAlignment="Left" Margin="453,79,0,0" VerticalAlignment="Top" Width="141"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="List User">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

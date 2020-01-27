@@ -16,6 +16,7 @@ using Dapper;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Security.Cryptography;
+using BCrypt.Net;
 
 namespace Login
 {
@@ -33,34 +34,18 @@ namespace Login
 
         private void Btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            string hash_input;
+            string hash_input = TB_Password.Password;
+
+            //string hash = BCrypt.Net.BCrypt.HashPassword(hash_input);
+
             int temp_id;
 
-            using (MD5 md5Hash = MD5.Create())
-            {
-                hash_input = GetMd5Hash(md5Hash, TB_Password.Password);
-            }
+            var check = con.Query<Check>("SELECT * FROM TB_M_User WHERE @Email = Email", 
+                new { Email = TB_Email.Text}).SingleOrDefault();
 
-            string GetMd5Hash(MD5 md5Hash, string input)
-            {
+            bool isValid = BCrypt.Net.BCrypt.Verify(hash_input, check.Password);
 
-                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-                StringBuilder sBuilder = new StringBuilder();
-
-                for (int i = 0; i < data.Length; i++)
-                {
-                    sBuilder.Append(data[i].ToString("x2"));
-                }
-
-                return sBuilder.ToString();
-            }
-
-
-            var check = con.QueryAsync<Check>("exec SP_Retrieve_Login @Email, @Password", 
-                new { Email = TB_Email.Text, Password = hash_input }).Result.SingleOrDefault();
-
-            if(check != null)
+            if (isValid == true)
             {
                 temp_id = check.Id;
 
@@ -80,6 +65,12 @@ namespace Login
             else
             {
                 MessageBox.Show("Gagal Login");
+
+
+                var newwindow = new Window2(1, 5);
+                newwindow.Show();
+
+                Close();
             }
         }
 
